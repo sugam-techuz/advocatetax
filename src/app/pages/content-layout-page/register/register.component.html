@@ -1,0 +1,84 @@
+<!--Registration Page Starts-->
+<section id="regestration">
+  <div class="container">
+    <div class="row full-height-vh">
+      <div class="col-12 d-flex align-items-center justify-content-center">
+        <div class="card">
+          <div class="card-body">
+            <div class="row d-flex">
+              <div class="col-12 col-sm-12 col-md-6 gradient-deep-orange-orange">
+                <div class="card-block">
+                  <div class="card-img overlap">  
+                    <img alt="Card image cap" src="assets/img/elements/13.png" width="350" class="mx-auto d-block">
+                  </div>
+                  <h2 class="card-title font-large-1 text-center white mt-3">Registration</h2>
+                </div>
+              </div>
+              <div class="col-12 col-sm-12 col-md-6 d-flex align-items-center">
+                <div class="card-block mx-auto">
+                  <!-- <ngb-alert type="danger" *ngIf="errorMessage" (close)="errorMessage = null">
+                      <strong>Danger!</strong>alert Message
+                  </ngb-alert> -->
+                  <form class="registration-form" #registerForm="ngForm" (ngSubmit)="registerForm.form.valid && (registration(registerForm.value))" novalidate>
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="icon-user"></i>
+                        </span>
+                      </div>
+                      <input type="text" class="form-control" name="name" id="name" placeholder="Name" ngModel required #name="ngModel" >
+                    </div>
+                    <small class="form-text text-muted danger" *ngIf="name?.errors && (name.dirty || name.touched || registerForm.submitted)">
+                      <p *ngIf="name?.errors?.required">Name is required</p>
+                    </small>
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="ft-mail"></i>
+                        </span>
+                      </div>
+                      <input type="email" class="form-control" name="email" id="email" placeholder="Email" ngModel required email #email="ngModel">
+                    </div>
+                    <small class="form-text text-muted danger" *ngIf="email?.errors && (email.dirty || email.touched || registerForm.submitted)">
+                      <p *ngIf="email?.errors?.required">Email is required.</p>
+                      <p *ngIf="email?.errors?.email">Please enter valid Email Id</p>
+                    </small>
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="ft-lock"></i>
+                        </span>
+                      </div>
+                      <input type="password" class="form-control" name="password" id="password" placeholder="Password" ngModel required #password="ngModel">
+                    </div>
+                    <small class="form-text text-muted danger" *ngIf="password?.errors && (password.dirty || password.touched || registerForm.submitted)">
+                      <p *ngIf="password?.errors?.required">Password is required</p>
+                    </small>
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="ft-lock"></i>
+                        </span>
+                      </div>
+                      <input type="password" class="form-control" name="confirm" id="confirm" placeholder="Confirm Password" ngModel required #confirm="ngModel" [equalTo]="password">
+                    </div>
+                    <small class="form-text text-muted danger" *ngIf="confirm?.errors && (confirm.dirty || confirm.touched || registerForm.submitted)">
+                      <p *ngIf="confirm?.errors?.equalTo">Passwords must match</p>
+                    </small>
+                    <div class="form-group text-center">
+                      <button type="submit" class="btn btn-warning btn-raised">Sign Up</button>
+                      <div class="col-md-12 ">
+                        <a [routerLink]="['/content-layout/login']" >Login</a>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--Registration Page Ends-->

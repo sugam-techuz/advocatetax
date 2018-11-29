@@ -1,0 +1,58 @@
+<!--Login Page Starts-->
+<section id="login">
+  <div class="container-fluid">
+    <div class="row full-height-vh">
+      <div class="col-12 d-flex align-items-center justify-content-center">
+        <div class="card gradient-indigo-purple text-center width-400">
+          <div class="card-img overlap">
+            <img alt="element 06" class="mb-1" src="assets/img/portrait/avatars/avatar-08.png" width="190">
+          </div>
+          <div class="card-body">
+            <div class="card-block">
+              <h2 class="white">Login</h2>
+              <form class="login-form" #loginForm="ngForm" (ngSubmit)="loginForm.form.valid && (onLogin(loginForm.value))"  novalidate="">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="ft-mail"></i>
+                      </span>
+                    </div>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Email" ngModel required email #email="ngModel" >
+                  </div>
+                  <small class="form-text text-muted danger" *ngIf="email?.errors && (email.dirty || email.touched || loginForm.submitted)">
+                    <p *ngIf="email?.errors?.required">Email is required.</p>
+                    <p *ngIf="email?.errors?.email">Please enter valid Email Id</p>
+                  </small>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="ft-lock"></i>
+                      </span>
+                    </div>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Password" ngModel required #Password="ngModel">
+                  </div>
+                  <small class="form-text text-muted danger" *ngIf="Password?.errors && (Password.dirty || Password.touched || loginForm.submitted)">
+                    <p *ngIf="Password?.errors?.required">Password is required.</p>
+                  </small>
+
+                <div class="form-group">
+                  <button type="submit" class="btn btn-pink btn-block btn-raised">Log in</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="float-left">
+              <a [routerLink]="['/content-layout/reset-password']" class="white">Forgot your password?</a>
+            </div>
+            <div class="float-right">
+              <a [routerLink]="['/content-layout/register']" class="white">Signup</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--Login Page Ends-->
+
